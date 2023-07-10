@@ -1,0 +1,75 @@
+*{
+	margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+.container{
+    width: 100%;
+	display: flex;
+	flex-wrap: wrap;
+}
+header{
+    background-color: #FDF4F5;
+    padding: 1%;
+    text-align: center;
+    align-items: center;
+}
+header .bar{
+    border-radius: 20px;
+    display: flex;
+    padding: 1%;
+    width: 40%;
+    background-color: #E7CBCB;
+}
+header .bar a{
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: 600;
+    border-right-style: double;
+    padding: 0% 10%;
+    color: #643843;
+}
+header .bar a:last-child{
+    border-right-style: none;
+}
+form{
+    padding: 5%;
+    position: relative;
+}
+form .data{
+    flex-direction: row;
+    align-content: center;
+    display: flex;
+    padding-bottom: 2%;
+    left: 0;
+}
+ion-icon{
+    color: #643843;
+    font-size: 30px;
+    margin-top: 2%;
+}
+form .data input{
+    font-size: medium;
+    margin-left: 25px;
+    border-radius: 20px;
+    border-style: groove;
+    border-color: #643843;
+    padding: 1%;
+    box-sizing: border-box;
+}
+form .data textarea{
+    font-size: medium;
+    margin-left: 25px;
+    border-radius: 20px;
+    border-style: groove;
+    border-color: #643843;
+    padding: 3%;
+    box-sizing: border-box;
+}
+.dataholder{
+    flex-direction: row;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
