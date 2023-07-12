@@ -26,33 +26,61 @@
         </div>
     </header>
     <div class="container">
-        <form action="">
+        <form id="encryptForm" onsubmit="submitEncryptFormV2(event)">
             <div class="data">
                 <ion-icon name="key-outline"></ion-icon>
-                <input type="text" name="" id="" placeholder="Key">
+                <input type="text"  id="encryptKey" placeholder="Key">
             </div>
             <div class="dataholder">
                 <div class="data">
                     <ion-icon name="text-outline"></ion-icon>
                     <div class="calculate">
-                        <textarea name="" id="" cols="60" rows="10" placeholder="Plaintext"></textarea>
+                        <textarea id="plaintext" cols="60" rows="10" placeholder="Plaintext"></textarea>
                         <div class="cal">
-                            <input type="text" name="" id="" placeholder="Besar Media" style="padding: 2%; border-radius: 0; background-color: #FEF2F4; border: 0; margin-top: 5%;">
+                            <input type="text" id="mediaSize" placeholder="Besar Media" style="padding: 2%; border-radius: 0; background-color: #FEF2F4; border: 0; margin-top: 5%;">
                         </div>
                     </div>
                 </div>
                 <div class="data" style="margin-left: 10%;">
                     <ion-icon name="text-outline"></ion-icon>
                     <div class="calculate">
-                        <textarea name="" id="" cols="60" rows="10" placeholder="Chipertext"></textarea>
+                        <textarea id="ciphertext" cols="60" rows="10" placeholder="Chipertext"></textarea>
                         <div class="cal">
-                            <input type="text" name="" id="" placeholder="Waktu" style="padding: 2%; border-radius: 0; background-color: #FEF2F4; border: 0; margin-top: 5%;">
+                            <input type="text" id="time" placeholder="Waktu" style="padding: 2%; border-radius: 0; background-color: #FEF2F4; border: 0; margin-top: 5%;">
                         </div>
                     </div>
                 </div>
             </div>
-            <button>PROSES</button>
+       
+            <input type="submit" value="PROSES">
         </form>
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+
+    <script>
+      
+                function submitEncryptFormV2(event) {
+                    const start = new Date(); // Waktu mulai
+                    event.preventDefault();
+
+        const key = document.getElementById('encryptKey').value;
+        const plaintext = document.getElementById('plaintext').value;
+
+        const iv = CryptoJS.enc.Hex.parse('11110000');
+
+        const encrypted = CryptoJS.AES.encrypt(plaintext, key, {
+  iv: iv,
+  mode: CryptoJS.mode.CBC,
+});
+
+
+        const end = new Date(); // Waktu selesai
+        const difference = (end - start) / 1000;
+        document.getElementById('ciphertext').value = encrypted.toString();
+                        document.getElementById('mediaSize').value = plaintext.length;
+                        document.getElementById('time').value = difference;
+                }
+        
+    </script>
 </body>
-</html>
+
