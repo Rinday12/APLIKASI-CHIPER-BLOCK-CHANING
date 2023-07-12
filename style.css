@@ -8,6 +8,7 @@
     width: 100%;
 	display: flex;
 	flex-wrap: wrap;
+    flex-direction: column;
 }
 header{
     background-color: #FDF4F5;
@@ -73,7 +74,7 @@ form .data textarea{
     margin: 0;
     padding: 0;
 }
-button{
+.submit input{
     background-color: #4CD3C2;
     color: black;
     font-weight: 700;
@@ -81,6 +82,29 @@ button{
     border: 0;
     border-radius: 10px;
     font-size: 15px;
-    right: 0;
-    float: right;
+    display: flex;
+    margin-left: 90%;
+}
+h1{
+    color: white;
+    font-size: 30px;
+}
+.backhelp{
+    margin: 3% 5%;
+    display: flex;
+    flex-direction: row;
+}
+.backhelp p{
+    display: flex;
+    float: left;
+    color: white;
+    margin-top: 1%;
+    font-size: 20px;
+}
+.back2{
+    display: flex;
+    flex-direction: column;
+}
+.back2:last-child{
+    margin-left: 20%;
 }
